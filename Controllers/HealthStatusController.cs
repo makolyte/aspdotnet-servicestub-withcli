@@ -15,5 +15,13 @@ namespace ServiceStub.Controllers
             Console.WriteLine("Request received: GET /HealthStatus");
             return Status.ToString();
         }
+
+        [HttpPost("SetResponse/{status}")]
+        public ActionResult SetResponse(HealthStatus status)
+        {
+            Console.WriteLine("Request received: POST /HealthStatus");
+            Status = status;
+            return Ok($"Changed status to {status}");
+        }
     }
 }
